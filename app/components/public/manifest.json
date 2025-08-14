@@ -1,0 +1,34 @@
+{
+  "name": "Campaña PNL O'Higgins 2025",
+  "short_name": "PNL O'Higgins",
+  "description": "Aplicación móvil para gestión de campaña electoral - Partido Nacional Libertario",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1e40af",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "es-ES",
+  "categories": ["productivity", "business"],
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "48x48",
+      "type": "image/x-icon"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Chat del Equipo",
+      "short_name": "Chat",
+      "description": "Ir directamente al chat del equipo",
+      "url": "/?tab=comunicaciones"
+    },
+    {
+      "name": "Mis Tareas",
+      "short_name": "Tareas", 
+      "description": "Ver mis tareas pendientes",
+      "url": "/?tab=tareas"
+    }
+  ]
+}
