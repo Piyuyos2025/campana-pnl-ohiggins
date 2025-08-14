@@ -426,12 +426,6 @@ const CampaignApp = () => {
     }
   };
 
-const handleCall = (phoneNumber) => {
-  if (typeof window !== 'undefined') {
-    window.location.href = `tel:${phoneNumber}`;
-  }
-};
-
  const handleCall = (phoneNumber) => {
   if (typeof window !== 'undefined') {
     // Vibración primero
