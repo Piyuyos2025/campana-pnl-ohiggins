@@ -402,7 +402,6 @@ const handleShare = async (content) => {
     }
   }
 };
-
 const handleEmail = (email) => {
   if (typeof window !== 'undefined') {
     // Vibración
