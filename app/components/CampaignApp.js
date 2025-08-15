@@ -10,7 +10,7 @@ const CampaignApp = () => {
   const [loginData, setLoginData] = useState({ email: '', password: '' });
   const [showPassword, setShowPassword] = useState(false);
   const [loginError, setLoginError] = useState('');
-  const [activeTab, setActiveTab] = useState('dashboard');
+  const [activeTab, setActiveTab] = useState('dashboard'); 
   const [newMessage, setNewMessage] = useState('');
   const [isOnline, setIsOnline] = useState(true);
   const [lastSync, setLastSync] = useState(new Date());
