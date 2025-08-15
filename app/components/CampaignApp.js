@@ -335,7 +335,41 @@ const CampaignApp = () => {
   };
 
   // Funciones móviles específicas
-  const handleShare = async (content) => {
+const handleShare = async (content) => {
+  if (typeof window !== 'undefined') {
+    // Vibración
+    if (navigator.vibrate) {
+      navigator.vibrate(100);
+    }
+    
+    // Probar Web Share API
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: 'Campaña PNL O\'Higgins',
+          text: content,
+          url: window.location.href,
+        });
+      } catch (err) {
+        // Fallback: copiar al portapapeles
+        if (navigator.clipboard) {
+          await navigator.clipboard.writeText(`${content} - ${window.location.href}`);
+          alert('¡Enlace copiado! Ahora puedes pegarlo donde quieras.');
+        } else {
+          alert(`Comparte este enlace: ${window.location.href}`);
+        }
+      }
+    } else {
+      // Fallback para navegadores sin Web Share
+      if (navigator.clipboard) {
+        await navigator.clipboard.writeText(`${content} - ${window.location.href}`);
+        alert('¡Enlace copiado! Ahora puedes pegarlo donde quieras.');
+      } else {
+        alert(`Comparte este enlace: ${window.location.href}`);
+      }
+    }
+  }
+};
     if (typeof window !== 'undefined' && navigator.share) {
       try {
         await navigator.share({
@@ -356,17 +390,32 @@ const CampaignApp = () => {
   };
 
   const handleCall = (phoneNumber) => {
-    if (typeof window !== 'undefined') {
+  if (typeof window !== 'undefined') {
+    // Vibración primero
+    if (navigator.vibrate) {
+      navigator.vibrate(100);
+    }
+    
+    // Mostrar confirmación
+    if (confirm(`¿Llamar a ${phoneNumber}?`)) {
       window.location.href = `tel:${phoneNumber}`;
     }
-  };
+  }
+};
 
-  const handleEmail = (email) => {
-    if (typeof window !== 'undefined') {
-      window.location.href = `mailto:${email}`;
+const handleEmail = (email) => {
+  if (typeof window !== 'undefined') {
+    // Vibración
+    if (navigator.vibrate) {
+      navigator.vibrate(100);
     }
-  };
-
+    
+    // Confirmar antes de abrir email
+    if (confirm(`¿Enviar email a ${email}?`)) {
+      window.location.href = `mailto:${email}?subject=Campaña PNL O'Higgins&body=Hola, escribo desde la app de campaña...`;
+    }
+  }
+};
   const refreshData = async () => {
     setIsLoading(true);
     // Simular actualización de datos
